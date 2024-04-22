@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3'
 import MyEditor from '@/Components/MyEditor.vue'
-import OffCanvasSidebar from '@/Components/OffCanvasSidebar.vue'
+import Sidebar from '@/Components/Sidebar.vue'
 
 const props = defineProps({
   posts: Array,
@@ -26,7 +26,7 @@ function submitForm() {
   <Head title="Welcome" />
 
   <br>
-  <OffCanvasSidebar />
+  <Sidebar />
   <br>
   <div class="container max-w-4xl mx-auto my-8">
     <form @submit.prevent="submitForm" class="space-y-8">
