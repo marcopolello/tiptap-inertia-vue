@@ -22,7 +22,7 @@ Route::get('/', function () {
     return Inertia::render('Welcome', [
         'posts' => Post::all(),
     ]);
-});
+})->name('test');
 
 Route::post('/', function (Request $request) {
     // validation
@@ -53,4 +53,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
