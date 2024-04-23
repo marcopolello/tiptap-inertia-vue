@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Stevebauman\Purify\Casts\PurifyHtmlOnGet;
 
 class Layout extends Model
 {

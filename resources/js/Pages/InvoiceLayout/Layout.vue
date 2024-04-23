@@ -1,13 +1,8 @@
-<script>
+<script setup>
 import { Head } from '@inertiajs/vue3';
-export default {
-  props: {
-    layout: {
-      type: Object,
-      required: true,
-    },
-  },
-};
+const props = defineProps({
+  layout: Object,
+})
 </script>
 
 <template>
@@ -19,9 +14,3 @@ export default {
     <div v-html="layout.content"></div>
   </div>
 </template>
-
-<style>
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-</style>
