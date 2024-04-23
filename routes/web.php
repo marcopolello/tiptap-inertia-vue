@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\InvoiceLayoutController;
 use App\Models\Post;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -33,6 +34,10 @@ Route::post('/', function (Request $request) {
     ]);
 
     return back()->with('message', 'Post was created!');
+});
+
+Route::prefix('layouts')->group(function () {
+    Route::get('layout/{id}', [InvoiceLayoutController::class, 'index'])->name('layouts.layout.index');
 });
 
 Route::get('/posts/{post}', function (Post $post) {
