@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\InvoiceLayoutController;
+use App\Http\Controllers\Web\InvoiceLayoutController;
 use App\Models\Post;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
