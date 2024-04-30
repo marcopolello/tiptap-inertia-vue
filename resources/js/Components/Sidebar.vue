@@ -1,15 +1,20 @@
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      layouts: [
-        { id: 1, title: "layout1" },
-        { id: 2, title: "layout2" },
-        { id: 3, title: "layout3" },
-        { id: 4, title: "layout4" },
-        { id: 5, title: "layout5" },
-      ],
+      layouts: [],
     };
+  },
+  created() {
+    axios.get(route('layouts.list'))
+      .then(response => {
+        this.layouts = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
   },
 };
 </script>
@@ -40,7 +45,7 @@ export default {
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                     <li v-for="layout in layouts">
                         <a
-                        :href="route('layouts.layout.index', layout.id)"
+                        :href="route('layout.index', layout.id)"
                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                         >{{ layout.title }}</a
                     >

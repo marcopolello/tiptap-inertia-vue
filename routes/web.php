@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\InvoiceLayoutController;
 use App\Models\Post;
+use App\Models\Layout;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,12 @@ Route::get('/', function () {
 Route::post('/', function (Request $request) {
     // validation
 
+    if (!$request->title) {
+        return back()->withErrors([
+            'title' => 'Title is required',
+        ]);
+    }
+
     Post::create([
         'title' => $request->title,
         'content' => $request->content,
@@ -37,7 +44,11 @@ Route::post('/', function (Request $request) {
 });
 
 Route::prefix('layouts')->group(function () {
-    Route::get('layout/{id}', [InvoiceLayoutController::class, 'index'])->name('layouts.layout.index');
+    Route::get('/layouts', function () {
+        $layouts = Layout::all();
+        return response()->json($layouts);
+    })->name('layouts.list');
+    Route::get('layout/{id}', [InvoiceLayoutController::class, 'index'])->name('layout.index');
 });
 
 Route::get('/posts/{post}', function (Post $post) {

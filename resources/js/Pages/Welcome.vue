@@ -16,8 +16,12 @@ function submitForm() {
   form.post('/', {
     preserveScroll: true,
     onSuccess: () => {
+      form.reset();
       alert('Form submission success!')
     },
+    onError: () => {
+      alert('Form submission failed!')
+    }
   })
 }
 </script>
