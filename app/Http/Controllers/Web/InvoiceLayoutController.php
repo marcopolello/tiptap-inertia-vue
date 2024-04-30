@@ -14,7 +14,7 @@ class InvoiceLayoutController extends Controller
 
         $layout = Layout::find($id);
 
-        return Inertia::render('InvoiceLayout/Layout', [
+        return Inertia::render('InvoiceLayout/LayoutFromDb', [
             'layout' => $layout,
         ]);
     }

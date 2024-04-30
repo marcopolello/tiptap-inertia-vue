@@ -1,27 +1,15 @@
-<script>
-import axios from 'axios';
+<script setup>
+import { Link, Head } from '@inertiajs/vue3'
 
-export default {
-  data() {
-    return {
-      layout: [],
-    };
-  },
-  created() {
-    axios.get(route('layout.index'))
-      .then(response => {
-        this.layout = response.data;
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  },
-};
+defineProps({ layout: Object })
 </script>
 
 <template>
+    <Head title="layout" />
 
+    <div class="container max-w-4xl mx-auto my-8">
+        <h2 class="text-2xl font-semibold">{{ layout.title }}</h2>
+        <div class="my-8 prose max-w-none" v-html="layout.content"></div>
+    </div>
+    
 </template>
-
-<style>
-</style>
