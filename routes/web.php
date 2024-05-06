@@ -49,6 +49,7 @@ Route::prefix('layouts')->group(function () {
         return response()->json($layouts);
     })->name('layouts.list');
     Route::get('layout/{id}', [InvoiceLayoutController::class, 'index'])->name('layout.index');
+    Route::get('tiptap', [InvoiceLayoutController::class, 'tiptap'])->name('layout.tiptap');
 });
 
 Route::get('/posts/{post}', function (Post $post) {

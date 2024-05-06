@@ -18,4 +18,10 @@ class InvoiceLayoutController extends Controller
             'layout' => $layout,
         ]);
     }
+
+    public function tiptap(): Response
+    {
+
+        return Inertia::render('InvoiceLayout/Layout');
+    }
 }
